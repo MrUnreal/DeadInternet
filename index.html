@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dead Internet — Visualizing the Bot Takeover</title>
+    <meta name="description" content="Interactive visualization of the Dead Internet phenomenon. Watch the web transform from human to bot-dominated in real time.">
+    <meta name="keywords" content="dead internet theory, bot traffic, AI content, internet bots, web visualization">
+    <meta property="og:title" content="Dead Internet — How Much of the Web Is Still Human?">
+    <meta property="og:description" content="Interactive visualization showing bot traffic, AI content, and the declining human web from 2010 to 2026.">
+    <meta property="og:type" content="website">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+
+    <header>
+        <h1>☠️ Dead Internet</h1>
+        <p class="subtitle">Visualizing the Bot Takeover</p>
+        <p class="subtitle-detail">How much of the internet is still human?</p>
+    </header>
+
+    <!-- Timeline Control -->
+    <section class="timeline-section">
+        <div class="timeline-wrapper">
+            <label class="timeline-label" id="year-label">2024</label>
+            <input type="range" id="year-slider" min="2010" max="2026" value="2024" step="1">
+            <div class="timeline-ticks" id="timeline-ticks"></div>
+            <div class="timeline-controls">
+                <button id="btn-play" class="btn-icon" title="Auto-play">▶</button>
+                <span class="timeline-hint">Drag the slider or press Play</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar" id="stats-bar">
+        <div class="stat-item">
+            <span class="stat-value" id="stat-bot-traffic">0<small>%</small></span>
+            <span class="stat-label">Bot Traffic</span>
+            <div class="stat-bar"><div class="stat-bar-fill bot" id="bar-bot"></div></div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="stat-ai-content">0<small>%</small></span>
+            <span class="stat-label">AI-Generated Content</span>
+            <div class="stat-bar"><div class="stat-bar-fill ai" id="bar-ai"></div></div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="stat-fake-accounts">0<small>%</small></span>
+            <span class="stat-label">Fake Accounts</span>
+            <div class="stat-bar"><div class="stat-bar-fill fake" id="bar-fake"></div></div>
+        </div>
+        <div class="stat-item">
+            <span class="stat-value" id="stat-ai-images">0</span>
+            <span class="stat-label">AI Images / Day</span>
+        </div>
+        <div class="stat-item highlight">
+            <span class="stat-value" id="stat-human-web">100<small>%</small></span>
+            <span class="stat-label">Authentic Human Web</span>
+            <div class="stat-bar"><div class="stat-bar-fill human" id="bar-human"></div></div>
+        </div>
+    </section>
+
+    <!-- Main Visualization -->
+    <section class="viz-section">
+        <div class="viz-container" id="viz-container">
+            <canvas id="network-canvas"></canvas>
+        </div>
+        <div class="viz-legend">
+            <span class="legend-item"><span class="legend-dot human"></span> Human</span>
+            <span class="legend-item"><span class="legend-dot bot"></span> Bot</span>
+            <span class="legend-item"><span class="legend-dot ai"></span> AI Agent</span>
+            <span class="legend-item"><span class="legend-dot dead"></span> Dead / Abandoned</span>
+        </div>
+    </section>
+
+    <!-- Simulated Feed -->
+    <section class="feed-section">
+        <h2>📡 Simulated Feed</h2>
+        <p class="feed-desc">What the internet looks like in <span id="feed-year">2024</span></p>
+        <div class="feed-container" id="feed-container"></div>
+    </section>
+
+    <!-- Milestones -->
+    <section class="milestones-section">
+        <h2>⚡ The Timeline</h2>
+        <p class="milestones-desc">Key events in the death of the human internet</p>
+        <div class="milestones-container" id="milestones-container"></div>
+    </section>
+
+    <footer>
+        <p>Data synthesized from Cloudflare, Imperva/Thales, and academic research</p>
+        <p class="footer-note">Built with Canvas & D3.js · Part of the AI Ecosystem Tools portfolio</p>
+    </footer>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
